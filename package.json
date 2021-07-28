@@ -8,7 +8,8 @@
     "lint:fix": "eslint --fix .",
     "lint:style": "stylelint **/*.{css,scss}",
     "build": "webpack --mode production",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
+    "jest": "^27.0.6",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.8.0",
