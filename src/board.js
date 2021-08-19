@@ -1,4 +1,4 @@
-let gameCells = ['', '', '', '', '', '', '', '', ''];
+let gameCells;
 const $boardDiv = document.querySelector('.board-container');
 const $boardCells = $boardDiv.querySelectorAll('.cell');
 const $gameStateDiv = document.querySelector('#game-state');
