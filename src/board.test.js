@@ -27,16 +27,17 @@ describe('gameBoard', () => {
   const shapePlayer2 = 'X';
 
   describe('fillPlayedCell', () => {
-    it("Fill game cells (between 0 and 8) with 'X or O' shape", () => {
+    it('Return false if game cell is out of range (0-8)', () => {
       board.clear();
+      const cell = 10;
+      board.fillPlayedCell(cell, 'X');
 
-      for (let i = 0; i < 9; i += 1) {
-        board.fillPlayedCell(i, i);
-      }
+      expect(board.fillPlayedCell(cell, 'X')).toBe(false);
     });
 
     it('Return false if the game cell is already occupied', () => {
       const cell = 0;
+      board.fillPlayedCell(cell, 'O');
 
       expect(board.fillPlayedCell(cell, 'X')).toBe(false);
     });
@@ -77,8 +78,12 @@ describe('gameBoard', () => {
       board.fillPlayedCell(2, shapePlayer2);
       board.fillPlayedCell(3, shapePlayer1);
 
-      expect(board.checkWinner(shapePlayer1)).toBe('nowin');
       expect(board.checkWinner(shapePlayer2)).toBe('nowin');
+    });
+
+    it("Return 'nowin' if there is no winning combination while still playing", () => {
+
+      expect(board.checkWinner(shapePlayer1)).toBe('nowin');
     });
 
     it("Return 'draw' if there is no winner when all cells are filled", () => {
@@ -94,7 +99,6 @@ describe('gameBoard', () => {
       board.fillPlayedCell(7, shapePlayer2);
       board.fillPlayedCell(8, shapePlayer2);
 
-      expect(board.checkWinner(shapePlayer1)).toBe('draw');
       expect(board.checkWinner(shapePlayer2)).toBe('draw');
     });
   });
