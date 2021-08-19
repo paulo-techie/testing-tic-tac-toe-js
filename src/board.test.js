@@ -82,7 +82,6 @@ describe('gameBoard', () => {
     });
 
     it("Return 'nowin' if there is no winning combination while still playing", () => {
-
       expect(board.checkWinner(shapePlayer1)).toBe('nowin');
     });
 
@@ -104,7 +103,6 @@ describe('gameBoard', () => {
   });
 
   describe('fillPlayedCell', () => {
-
     it('Return false if game cell is out of range (0-8)', () => {
       board.clear();
       const cell = 10;
