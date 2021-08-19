@@ -102,13 +102,18 @@ describe('gameBoard', () => {
     });
   });
 
-  describe('fillPlayedCell', () => {
-    it('Return false if game cell is out of range (0-8)', () => {
-      board.clear();
-      const cell = 10;
-      board.fillPlayedCell(cell, 'X');
+  describe('clear', () => {
+    it('Return false if game cell is played when already filled', () => {
+      const cell = 0;
 
       expect(board.fillPlayedCell(cell, 'X')).toBe(false);
+    });
+
+    it('Return true if game cell is played when board has been cleared', () => {
+      const cell = 0;
+      board.clear();
+
+      expect(board.fillPlayedCell(cell, 'X')).toBe(true);
     });
   });
 });
