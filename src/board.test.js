@@ -102,4 +102,15 @@ describe('gameBoard', () => {
       expect(board.checkWinner(shapePlayer2)).toBe('draw');
     });
   });
+
+  describe('fillPlayedCell', () => {
+
+    it('Return false if game cell is out of range (0-8)', () => {
+      board.clear();
+      const cell = 10;
+      board.fillPlayedCell(cell, 'X');
+
+      expect(board.fillPlayedCell(cell, 'X')).toBe(false);
+    });
+  });
 });
